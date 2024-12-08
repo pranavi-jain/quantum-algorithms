@@ -1,6 +1,0 @@
-key,device_name,transpiled_depth,job_id,counts,execution_time
-a9f638fd,aer_sim,6,,{'01': 1024},1970-01-01 00:00:00.591352701
-a9f638fd,aer_noisy,12,,"{'01': 965, '11': 32, '00': 21, '10': 6}",1970-01-01 00:00:13.188663006
-a9f638fd,ibm_fez,8,cxawmv3rkac00089qk40,,
-ea107f17,aws_local,3,,{'00': 1024},0.5312738418579102
-ea107f17,aws_SV1,14,arn:aws:braket:us-west-1:615299756142:quantum-task/38f2cb3b-d9a1-478b-a2fe-c4fdeada972d,{'00': 1024},

@@ -41,9 +41,11 @@ def grover_circuit(target_states):
     opt = get_optimal_iterations(target_states, grover_op)
     
     # Full Grover's circuit
+    pass_qc = grover_op.decompose()
     qc = QuantumCircuit(grover_op.num_qubits)
     qc.h(range(grover_op.num_qubits))
-    qc.compose(grover_op.power(opt), inplace=True)  # Apply Grover operator the optimal number of times
+    for _ in range(0,opt):
+        qc.compose(pass_qc, inplace=True)
     qc.measure_all()
     
     return qc
