@@ -1,4 +1,0 @@
-key,device_name,transpiled_depth,job_id,counts,execution_time
-1aa22e93,aer_sim,6,,{'10': 1024},2.023550033569336
-1aa22e93,aer_noisy,12,,"{'01': 6, '10': 970, '11': 12, '00': 36}",14.710614919662476
-1aa22e93,ibm_fez,9,cxapcgjrkac00089q27g,,

@@ -13,14 +13,14 @@ def aer_without_noise(key_circuit):
     with Session(backend=aer) as session:
         for key, qc in key_circuit:
             isa_qc = pm.run(qc)
-            depth = isa_qc.depth()      # Storing depth of transpiled circuit 
+            depth = isa_qc.depth()  # Storing depth of transpiled circuit
             start_time = time.time()
             result = Sampler().run([isa_qc]).result()
             counts = result[0].data.meas.get_counts()
             end_time = time.time()
             exc_time = end_time - start_time
             output.append((key, depth, counts, exc_time))
-    
+
     return output
 
 
@@ -32,14 +32,14 @@ def aer_noisy(key_circuit, backend):
     with Session(backend=aer_noisy) as session:
         for key, qc in key_circuit:
             isa_qc = pm.run(qc)
-            depth = isa_qc.depth()      # Storing depth of transpiled circuit
+            depth = isa_qc.depth()  # Storing depth of transpiled circuit
             start_time = time.time()
             result = Sampler(mode=aer_noisy).run([isa_qc]).result()
             counts = result[0].data.meas.get_counts()
             end_time = time.time()
             exc_time = end_time - start_time
             output.append((key, depth, counts, exc_time))
-    
+
     return output
 
 
@@ -52,5 +52,5 @@ def run_backend_job(key_circuit, backend):
             job = Sampler().run([tqc], shots=1024)
             job_id = job.job_id()
             output.append((key, job_id, tqc.depth()))
-    
+
     return output

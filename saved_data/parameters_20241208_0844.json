@@ -1,0 +1,11 @@
+[
+    {
+        "key": "ea107f17",
+        "target_states": [
+            "00"
+        ],
+        "quantum_circuit": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\ngate mcmt _gate_q_0, _gate_q_1 {\n  cz _gate_q_0, _gate_q_1;\n}\ngate Q _gate_q_0, _gate_q_1 {\n  x _gate_q_0;\n  x _gate_q_1;\n  mcmt _gate_q_0, _gate_q_1;\n  x _gate_q_0;\n  x _gate_q_1;\n  h _gate_q_1;\n  h _gate_q_0;\n  x _gate_q_0;\n  x _gate_q_1;\n  h _gate_q_1;\n  cx _gate_q_0, _gate_q_1;\n  h _gate_q_1;\n  x _gate_q_0;\n  x _gate_q_1;\n  h _gate_q_0;\n  h _gate_q_1;\n}\ngate Q_0 _gate_q_0, _gate_q_1 {\n  Q _gate_q_0, _gate_q_1;\n}\nbit[2] meas;\nqubit[2] q;\nh q[0];\nh q[1];\nQ_0 q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+        "num_qubits": 2,
+        "depth": 3
+    }
+]
