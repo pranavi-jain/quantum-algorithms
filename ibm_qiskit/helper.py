@@ -12,14 +12,12 @@ def update_dataframe_with_ibm_results(service, df):
                 if job.status() == 'DONE':
                     # Get job results
                     result = job.result()
-                    counts = result.get_counts()
-                    execution_time = result.time_taken
+                    counts = result[0].data.meas.get_counts()
                     
                     # Update the DataFrame
                     df.at[index, 'counts'] = counts
-                    df.at[index, 'execution_time'] = execution_time
                     
-                    print(f"Updated job {job_id}: Counts = {counts}, Execution Time = {execution_time} seconds")
+                    print(f"Updated job {job_id}: Counts = {counts}")
                 else:
                     print(f"Job {job_id} is not completed yet. Current status: {job.status()}")
             except Exception as e:

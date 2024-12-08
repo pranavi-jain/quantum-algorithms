@@ -27,26 +27,29 @@ def aws_online_simulator(key_circuit, simulator):
         braket_circuit = to_braket(qc, basis_gates=sv1_supported_gates)
         start_time = time.time()  # Start Time
         task = sv1.run(qc, shots=1024)
+        task_arn = task.job_id()
         counts = task.result().get_counts()
         end_time = time.time()  # End Time
         exc_time = end_time - start_time
-        output.append((key, braket_circuit.depth, counts, exc_time))
+        output.append((key, braket_circuit.depth, task_arn, counts, exc_time))
 
     return output
 
 
 # Run circuits on AWS linked hardware
 def aws_run_task(key_circuit, device, shots):
-    output = []
-    provider = BraketProvider()
-    backend = provider.get_backend(device)
-    supported_gates = backend._get_gateset()
-    for key, qc in key_circuit:
-        braket_circuit = to_braket(qc, basis_gates=supported_gates)
-        task = backend.run(qc, shots=shots)
-        task_arn = task.job_id()
-        output.append((key, braket_circuit.depth, task_arn))
-
-    return output
-
+    try:
+        output = []
+        provider = BraketProvider()
+        backend = provider.get_backend(device)
+        supported_gates = backend._get_gateset()
+        for key, qc in key_circuit:
+            braket_circuit = to_braket(qc, basis_gates=supported_gates)
+            task = backend.run(qc, shots=shots)
+            task_arn = task.job_id()
+            output.append((key, braket_circuit.depth, task_arn))
+        return output
+    except Exception as e:
+        print(f"An error occurred on key {key}:\n {e}")
+        return output
 
