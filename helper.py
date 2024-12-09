@@ -49,7 +49,7 @@ def calculate_accuracy(counts, target_states):
     target_counts = 0
     if counts:
         total_counts = sum(counts.values())
-        target_counts = sum(counts.get(str(state)) for state in target_states)
+        target_counts = sum(counts.get(str(state), 0) for state in target_states)
         accuracy = target_counts / total_counts if total_counts > 0 else 0.0
         return accuracy, total_counts
     return 0.0, 0
