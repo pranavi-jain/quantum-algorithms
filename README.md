@@ -64,13 +64,13 @@ Outputs: Performance metrics (transpiled circuit depth, accuracy)
 The results from the benchmarking experiments are analyzed to evaluate the performance of quantum simulators and hardware. Key observations include:
 
 1. **Accuracy vs. Number of Qubits**: Shown in Figure 1 below, simulators without noise achieved near-perfect accuracy for all qubit numbers. As the number of qubits increased, noisy simulators and quantum hardware showed a significant drop in accuracy due to error accumulation and limited coherence times.
-![Figure 1: Accuracy vs Number of Qubits](/img/accuracy%20vs%20num_qubits.png)
+<img src="/img/accuracy%20vs%20num_qubits.png" alt="Figure 1" width="600"/>
 
-2. **Accuracy vs. Circuit Depth**: Accuracy decreased with increasing circuit depth as shown in Figure 2 below, highlighting the impact of noise and gate errors. In general, quantum hardware with higher Quantum Volume exhibited better accuracy for deeper circuits.
-![Figure 2: Accuracy vs Circuit Depth](/img/accuracy%20vs%20circuit_depth.png)
+3. **Accuracy vs. Circuit Depth**: Accuracy decreased with increasing circuit depth as shown in Figure 2 below, highlighting the impact of noise and gate errors. In general, quantum hardware with higher Quantum Volume exhibited better accuracy for deeper circuits.
+<img src="/img/accuracy%20vs%20circuit_depth.png" alt="Figure 1" width="600"/>
 
-3. **Cross-Platform Performance**: IBM Quantum backends generally outperformed IonQ and IQM in terms of accuracy for larger qubit counts, which was attributed to better noise mitigation and error correction strategies. This can be better noted from Figure 3 below showing the accuracy vs. transpiled circuit depth. The depth of transpiled circuits for superconducting qubits (IBM, IQM) increases faster than for trapped-ion-based devices (IonQ), yet IBM backends exhibit higher accuracy.
-![Figure 3: Accuracy vs Transpiled Circuit Depth](/img/accuracy%20vs%20trans_circuit_depth%20-%20all.png)
+5. **Cross-Platform Performance**: IBM Quantum backends generally outperformed IonQ and IQM in terms of accuracy for larger qubit counts, which was attributed to better noise mitigation and error correction strategies. This can be better noted from Figure 3 below showing the accuracy vs. transpiled circuit depth. The depth of transpiled circuits for superconducting qubits (IBM, IQM) increases faster than for trapped-ion-based devices (IonQ), yet IBM backends exhibit higher accuracy.
+<img src="/img/accuracy%20vs%20trans_circuit_depth%20-%20all.png" alt="Figure 1" width="600"/>
 
 
 ## Future Work
